@@ -48,6 +48,14 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/');
   });
 
+  server.get('/blog', (req, res) => {
+    renderAndCache(req, res, '/blog');
+  });
+
+  server.get('/sample', (req, res) => {
+    renderAndCache(req, res, '/sample');
+  });
+
   //Fetching and caching the post. This is done dynamically. By knowing what the url will look like, we only need the slug to ensure it is cached properly. If this isn't done, you will get a 200 error wehn the app is offline
   server.get('/blog/:slug', (req, res) => {
     renderAndCache(req, res, '/blog/'+req.params.slug); 
