@@ -9,7 +9,7 @@ const sm = require('sitemap');
 const { ApolloClient, HttpLink, InMemoryCache} = require('apollo-boost');
 const fetch = require('isomorphic-unfetch');
 const gql = require('graphql-tag');
-const {DEV_API,API,HOST} = require('./src/util/AppSettings');
+const {DEV_API,API,HOST} = require('./src/util/AppHelper');
 
 const PORT = 8080;
 const dev = process.env.NODE_ENV !== 'production';
