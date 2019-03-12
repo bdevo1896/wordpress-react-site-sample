@@ -1,0 +1,30 @@
+{
+  "name": "sample_site",
+  "version": "1.0.0",
+  "description": "Headless Wordpress with GraphQl server and React Frontend",
+  "main": "server.js",
+  "scripts": {
+    "dev-win": "SET NODE_ENV=dev&& node server.js",
+    "dev": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "start-win": "SET NODE_ENV=production node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bryce DeVaughn",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "apollo-boost": "^0.3.1",
+    "apollo-client": "^2.5.1",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-apollo": "^2.5.2",
+    "react-dom": "^16.8.4",
+    "sitemap": "^2.1.0",
+    "webpack": "^4.29.6"
+  }
+}
