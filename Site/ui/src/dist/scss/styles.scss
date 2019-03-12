@@ -1,0 +1,6 @@
+/*
+    Styles, applied here, should be completely global and never focus on a specific object/component. Global styles would include default font, spacing, drop shadows, etc. Components should
+    have specific styles. In the case of applying colors to specific components like the navigation having a specific background color of green, but another component also uses that green,
+    you have 3 options. One, put the styles here for the components individually. Two, make a separate JS file that contains global styles. Lastly, you can add the styles to the highest component
+    which in our case will be _app.js file.
+*/
