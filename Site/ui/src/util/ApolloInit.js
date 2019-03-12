@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
+import {DEV_API} from './AppSettings';
 let apolloClient = null
 
 // Polyfill fetch() on the server (used by apollo-client)
@@ -13,9 +14,7 @@ function create (initialState) {
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      // uri: 'https://the-mango-nerd.appspot.com/graphql', // Server URL (must be absolute)
-      uri: 'https://admin.themangonerd.com/graphql',
-      // uri: 'http://localhost:4000/graphql',
+      uri: AppSettings.DEV_API,
       credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {})
