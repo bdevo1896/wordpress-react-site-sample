@@ -1,21 +1,40 @@
 import Link from 'next/link';
 
 const NavLink = ({href,as,text}) => (
-    <Link prefetch href={href} as={as}>
-        <a aria-label={text}>{text}</a>
-    </Link>
+    <li className="m-s-left m-s-right">
+        <Link prefetch href={href} as={as}>
+            <a aria-label={text}>{text}</a>
+        </Link>
+    </li>
 )
 
 const Navigation = () => (
-    <div>
-        <h3>The Mango Nerd Sample Site</h3>
+    <div className="hbox p-s-all">
+        <h3 className="m-s-right">The Mango Nerd Sample Site</h3>
         <nav>
-            <ul>
+            <ul className="hbox">
                 <NavLink href="/" as="/" text="Home"/>
                 <NavLink href="/blog" as="/blog" text="Blog"/>
                 <NavLink href="/sample" as="/sample" text="Sample" />
             </ul>
         </nav>
+
+        <style jsx>{`
+            
+            nav ul {
+                list-style: none;
+            }
+
+            div {
+                border-bottom: 1px solid #dddd;
+            }
+
+            @media(min-width: 500px) {
+                nav {
+                    border-left: 1px solid #dddd;
+                }
+            }
+        `}</style>
     </div>
 )
 

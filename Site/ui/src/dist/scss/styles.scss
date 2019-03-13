@@ -6,3 +6,25 @@
 */
 
 @import 'devo-util';
+
+$SS_GRAY: #474c4b;
+$SS_BLUEGREEN: #18a27c;
+$SS_NAVY: #1d2a41;
+
+* {
+    font-family: Calibri, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    transition: opacity 100ms ease-in;
+    color: $SS_BLUEGREEN;
+
+    &:hover {
+        opacity: .5;
+    }
+}
+
+h1 {
+    color: $SS_NAVY;
+}

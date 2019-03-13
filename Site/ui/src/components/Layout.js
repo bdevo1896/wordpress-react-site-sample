@@ -1,7 +1,7 @@
 import {CSSTransition} from 'react-transition-group';
 import Header from './Header';
 import Footer from './Footer';
-import {Fragment,PureComponent} from 'react';
+import {PureComponent} from 'react';
 
 class Layout extends PureComponent {
     constructor(props) {
@@ -14,7 +14,7 @@ class Layout extends PureComponent {
         const {title,description,keywords} = this.props;
         const {appearPage} = this.state;
         return (
-            <Fragment>
+            <div id="wrapper">
                 <header>
                     <Header 
                         title={title}
@@ -28,12 +28,24 @@ class Layout extends PureComponent {
                         timeout={400}
                         classNames="fade"
                 >
-                    <main>
-                        {this.props.children}
+                    <main className="vbox">
+                        <div id="content-container" className="p-s-all">
+                            {this.props.children}
+                        </div>
+                        <Footer />
                     </main>
                 </CSSTransition>
-                <Footer />
                 <style jsx>{`
+
+                    header {
+                        flex: 0 1 auto;
+                    }
+
+                    main {
+                        overflow-y: scroll;
+                        justify-content: space-between;
+                        flex: 1 1 auto;
+                    }
                     main.fade-appear {
                         opacity: 0;
                     }
@@ -48,8 +60,17 @@ class Layout extends PureComponent {
                     main.fade-exit {
                         opacity: 0;
                     }
+
+                    #wrapper {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        position: fixed;
+                        height: 100vh;
+                        width: 100vw;
+                        flex-shrink: 0;
+                    }
                 `}</style>
-            </Fragment>
+            </div>
         )
     }
 }
