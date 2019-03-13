@@ -1,4 +1,0 @@
-#Untracked Files
-
-/Site/ui/.next/*
-/Site/ui/node_modules/*
