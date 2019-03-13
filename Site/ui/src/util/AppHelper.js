@@ -14,3 +14,10 @@ export const COLORS = {
 }
 
 export const HOST = 'www.example.com';
+
+//Right now with WPGraphQl, there isn't an easy to convert repeater fields to be json ready 
+export function convertACFToJSON(obj) {
+    if(obj.hasOwnProperty('acf') && typeof obj.acf === 'string') {
+        obj.acf = JSON.parse(obj.acf);
+    }
+}
