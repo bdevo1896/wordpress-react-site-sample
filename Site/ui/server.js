@@ -9,7 +9,12 @@ const sm = require('sitemap');
 const { ApolloClient, HttpLink, InMemoryCache} = require('apollo-boost');
 const fetch = require('isomorphic-unfetch');
 const gql = require('graphql-tag');
-// const {DEV_API,API,HOST} = require('./src/util/AppHelper');
+
+//Change this to whatever graphql API you're using for the dev environment
+const DEV_API = 'http://localhost:4000/graphql';
+
+//This is whatever will be the graphql API you're using at production
+const API = 'https://admin.example.com/graphql';
 
 const PORT = 8080;
 const dev = process.env.NODE_ENV !== 'production';
@@ -23,8 +28,8 @@ const ssrCache = new cache({
 
 const client = new ApolloClient({
   link: new HttpLink({
-    // uri: dev ? DEV_API : API,
-    uri: 'https://example.com/graphql',
+    uri: dev ? DEV_API : API,
+    // uri: 'https://example.com/graphql',
     credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
   }),
   cache: new InMemoryCache()

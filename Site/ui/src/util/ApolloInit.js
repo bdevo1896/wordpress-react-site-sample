@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
-import {DEV_API} from './AppHelper';
+import {DEV_API,API} from './AppHelper';
 let apolloClient = null
 
 // Polyfill fetch() on the server (used by apollo-client)
@@ -14,7 +14,7 @@ function create (initialState) {
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: DEV_API,
+      uri: process.env.NODE_ENV == 'dev' ? DEV_API : API, //manually switch this to uri: API when you're ready to go production unless you understand how to pass environment variables into the client side
       credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {})
