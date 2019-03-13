@@ -2,14 +2,14 @@ const { join } = require('path');
 const express = require('express');
 const next = require('next');
 const cache = require('lru-cache'); // for using least-recently-used based caching
-const favicon = require('serve-favicon')
+// const favicon = require('serve-favicon')
 const path = require('path')
 const bodyParser = require('body-parser');
 const sm = require('sitemap');
 const { ApolloClient, HttpLink, InMemoryCache} = require('apollo-boost');
 const fetch = require('isomorphic-unfetch');
 const gql = require('graphql-tag');
-const {DEV_API,API,HOST} = require('./src/util/AppHelper');
+// const {DEV_API,API,HOST} = require('./src/util/AppHelper');
 
 const PORT = 8080;
 const dev = process.env.NODE_ENV !== 'production';
@@ -20,6 +20,15 @@ const ssrCache = new cache({
   max: 20, // not more than 20 results will be cached
   maxAge: 1000 * 60 * 5, // 5 mins
 });
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    // uri: dev ? DEV_API : API,
+    uri: 'https://example.com/graphql',
+    credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
+  }),
+  cache: new InMemoryCache()
+})
 
 app.prepare().then(() => {
   const server = express();
@@ -39,7 +48,6 @@ app.prepare().then(() => {
       }
     });
   }
-  server.use(favicon(path.join(__dirname,'/','favicon.ico')))
   server.use(bodyParser.urlencoded({extended: true}));
   server.use(bodyParser.json())
 
@@ -61,6 +69,12 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/blog/'+req.params.slug); 
     app.render(req, res, '/post', req.params)
   })
+
+  //Here is how you can create a robots.txt
+  server.get('/robots.txt', (req,res) => {
+    res.type('text/plain')
+    res.send("User-agent: *\nAllow: /")
+  });
 
   /* Make a sitemap on the fly with a cache time of 10 minutes. the url and lastMOD values will be populated so we need to fetch the slug and last modified time (in WPGraphQl this is instantiated as
      'modified' in the schema of posts and pages).

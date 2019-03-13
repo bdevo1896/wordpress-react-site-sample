@@ -6,11 +6,11 @@ export const API = 'https://admin.example.com';
 
 //Main app colors to be used in components. PRO TIP: If you can't come up with a good color scheme go to http://colormind.io
 export const COLORS = {
-    SS_GRAY = '#474c4b',
-    SS_BLUEGREEN = '#18a27c',
-    SS_NAVY = '#1d2a41',
-    SS_YELLOWGREEN = '#5eda49',
-    SS_LIGHTGREEN = '#2cc35a'
+    SS_GRAY: '#474c4b',
+    SS_BLUEGREEN: '#18a27c',
+    SS_NAVY: '#1d2a41',
+    SS_YELLOWGREEN: '#5eda49',
+    SS_LIGHTGREEN: '#2cc35a'
 }
 
 export const HOST = 'www.example.com';
