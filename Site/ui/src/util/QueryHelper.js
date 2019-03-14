@@ -58,7 +58,7 @@ export const GET_FOOTER_SCRIPTS = gql `{
 
 export const GET_PAGE_DATA = gql `
     query Page($pageSlug: String!) {
-        pageBy(slug: $pageSlug) {
+        pageBy(uri: $pageSlug) {
             title
             acf
             seoTitle
