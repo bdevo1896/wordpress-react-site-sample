@@ -16,7 +16,7 @@ const DEV_API = 'http://localhost:4000/graphql';
 //This is whatever will be the graphql API you're using at production
 const API = 'https://admin.example.com/graphql';
 
-const PORT = 8080;
+const PORT = 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -108,6 +108,13 @@ app.prepare().then(() => {
               nodes {
                 slug
                 modified
+              }
+            }
+
+            fruits {
+              nodes {
+                slug
+                modified              
               }
             }
           }
