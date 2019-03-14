@@ -30,14 +30,22 @@ export const GET_FOOTER_SCRIPTS = gql `{
             slug
             date
             excerpt
+            featuredImage {
+                sourceUrl
+            }
         }
     }
-    fruits {
+ }`;
+
+ export const GET_PRODUCE_DATA = gql `{
+    posts {
         nodes {
             title
             slug
-            date
             excerpt
+            featuredImage {
+                sourceUrl
+            }
         }
     }
  }`;

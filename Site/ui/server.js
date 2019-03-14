@@ -80,7 +80,7 @@ app.prepare().then(() => {
     res.type('text/plain')
     res.send(`
       User-agent: *
-      \nDisallow: /info
+      \nDisallow: /fruit
       \nDisallow: /post
       `)
   });
