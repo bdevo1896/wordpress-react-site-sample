@@ -28,7 +28,6 @@ class Header extends PureComponent {
                     <title>{`${title} | Sample Site`}</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
                     <meta name="description" content={description}/>
-                    <meta name="keywords" content={keywords}/>
                     <meta name="theme-color" content="#474c4b"/>
                     <link rel="manifest" href="/static/manifest.json" />
                 </Head>
