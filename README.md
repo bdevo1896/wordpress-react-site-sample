@@ -18,7 +18,7 @@ Welcome to my first real public repo! This is for anyone looking to get into Nex
 - Node.js 5 or higher
 - A great IDE (Highly recommend Visual Studio Code!)
 
-## Get Started
+## Getting Started
 1. Clone the repo
 2. Open Site folder in VS Code
 3. Open a new Terminal and cd to ui folder
