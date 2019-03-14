@@ -38,7 +38,7 @@ export const GET_FOOTER_SCRIPTS = gql `{
  }`;
 
  export const GET_PRODUCE_DATA = gql `{
-    posts {
+    fruits {
         nodes {
             title
             slug
