@@ -78,7 +78,11 @@ app.prepare().then(() => {
   //Here is how you can create a robots.txt
   server.get('/robots.txt', (req,res) => {
     res.type('text/plain')
-    res.send("User-agent: *\nAllow: /")
+    res.send(`
+      User-agent: *
+      \nDisallow: /info
+      \nDisallow: /post
+      `)
   });
 
   /* Make a sitemap on the fly with a cache time of 10 minutes. the url and lastMOD values will be populated so we need to fetch the slug and last modified time (in WPGraphQl this is instantiated as
