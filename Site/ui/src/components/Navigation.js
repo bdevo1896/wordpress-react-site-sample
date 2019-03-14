@@ -15,7 +15,6 @@ const Navigation = () => (
             <ul className="hbox">
                 <NavLink href="/" as="/" text="Home"/>
                 <NavLink href="/blog" as="/blog" text="Blog"/>
-                <NavLink href="/sample" as="/sample" text="Sample" />
             </ul>
         </nav>
 
