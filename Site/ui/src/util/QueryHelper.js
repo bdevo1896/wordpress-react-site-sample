@@ -55,3 +55,14 @@ export const GET_FOOTER_SCRIPTS = gql `{
             seoDescription
         }
     }`;
+
+export const GET_PAGE_DATA = gql `
+    query Page($pageSlug: String!) {
+        pageBy(slug: $pageSlug) {
+            title
+            acf
+            seoTitle
+            seoDescription
+        }
+    }
+`
