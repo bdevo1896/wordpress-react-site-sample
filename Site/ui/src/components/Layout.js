@@ -45,6 +45,7 @@ class Layout extends PureComponent {
                         overflow-y: scroll;
                         justify-content: space-between;
                         flex: 1 1 auto;
+                        flex-flow: column nowrap;
                     }
                     main.fade-appear {
                         opacity: 0;
@@ -69,6 +70,7 @@ class Layout extends PureComponent {
                         width: 100vw;
                         flex-shrink: 0;
                     }
+
                 `}</style>
             </div>
         )
