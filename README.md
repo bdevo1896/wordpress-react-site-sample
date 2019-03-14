@@ -38,3 +38,5 @@ You now should be up and running and seeing it all in motion!
 - Wordpress Admin on localhost:4000/wp-admin (user: admin | password: password)
 - SQL Database is runnning at localhost:3306
 - PHPmyadmin is running at localhost:5000 (user: root | password: password)
+
+I will continue to come back to this project to keep it updated with best practices! Don't be afraid to message me for any questions you might have! The code is heavily commented
