@@ -34,8 +34,7 @@ Welcome to my first real public repo! This is for anyone looking to get into Nex
     - Linux: npm run start
     
 You now should be up and running and seeing it all in motion!
-
-You can locate the React App on localhost:3000
-Wordpress Admin on localhost:4000/wp-admin (user: admin | password: password)
-SQL Database is runnning at localhost:3306
-PHPmyadmin is running at localhost:5000 (user: root | password: password)
+- You can locate the React App on localhost:3000
+- Wordpress Admin on localhost:4000/wp-admin (user: admin | password: password)
+- SQL Database is runnning at localhost:3306
+- PHPmyadmin is running at localhost:5000 (user: root | password: password)
