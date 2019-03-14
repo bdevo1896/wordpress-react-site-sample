@@ -1,5 +1,7 @@
 import Layout from '../src/components/Layout';
+import {Query} from 'apollo-client';
 
+// const BlogCard
 const Blog = () => (
     <Layout
         title="Blog"

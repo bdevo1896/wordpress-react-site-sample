@@ -56,6 +56,7 @@ export const GET_FOOTER_SCRIPTS = gql `{
             title
             date
             modified
+            content
             featuredImage {
                 sourceUrl
             }
@@ -73,4 +74,18 @@ export const GET_PAGE_DATA = gql `
             seoDescription
         }
     }
-`
+`;
+
+export const GET_FRUIT_DATA = gql `
+    query Fruit($fruitSlug: String!) {
+        fruitBy(slug: $fruitSlug) {
+            title
+            content
+            featuredImage {
+                sourceUrl
+            }
+            seoTitle
+            seoDescription
+        }
+    }
+`;

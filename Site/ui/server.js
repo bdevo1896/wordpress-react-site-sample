@@ -14,7 +14,9 @@ const gql = require('graphql-tag');
 const DEV_API = 'http://localhost:4000/graphql';
 
 //This is whatever will be the graphql API you're using at production
-const API = 'https://admin.example.com/graphql';
+const API = 'http://localhost:4000/graphql';
+
+const HOST = 'https://www.example.com'
 
 const PORT = 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -65,21 +67,20 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/blog');
   });
 
-  server.get('/sample', (req, res) => {
-    renderAndCache(req, res, '/sample');
-  });
-
-  //Fetching and caching the post. This is done dynamically. By knowing what the url will look like, we only need the slug to ensure it is cached properly. If this isn't done, you will get a 200 error wehn the app is offline
+  //Fetching the post. This is done dynamically.
   server.get('/blog/:slug', (req, res) => {
-    renderAndCache(req, res, '/blog/'+req.params.slug); 
     app.render(req, res, '/post', req.params)
+  })
+
+  //Fetching the fruit product listing
+  server.get('/produce/:slug', (req, res) => {
+    app.render(req, res, '/fruit', req.params)
   })
 
   //Here is how you can create a robots.txt
   server.get('/robots.txt', (req,res) => {
     res.type('text/plain')
-    res.send(`
-      User-agent: *
+    res.send(`User-agent: *
       \nDisallow: /fruit
       \nDisallow: /post
       `)
@@ -126,6 +127,7 @@ app.prepare().then(() => {
       }).then(result => {
           let posts = result.data.posts.nodes;
           let pages = result.data.pages.nodes;
+          let fruits = result.data.fruits.nodes;
 
           let sitemap = sm.createSitemap({
             hostname: `https://${HOST}`,
@@ -134,7 +136,7 @@ app.prepare().then(() => {
 
           
           pages.forEach(el => {
-            if(el.slug=='home') {
+            if(el.slug=='home-page') {
               sitemap.add({url:'/',lastmodISO:modifyTime(el.modified)})
             }else {
               sitemap.add({url:el.slug,lastmodISO:modifyTime(el.modified)})
@@ -146,6 +148,11 @@ app.prepare().then(() => {
 
           //Dynamically adding the fetched posts
           posts.forEach(el => sitemap.add({url:'/blog/'+el.slug,lastmodISO:modifyTime(el.modified)}));
+
+          //Adding the produce page since that is only declared here
+          sitemap.add({url:'/produce',lastmodISO:modifyTime(fruits[0].modified)});
+
+          fruits.forEach(el => sitemap.add({url:'/produce/'+el.slug,lastmodISO:modifyTime(el.modified)}));
 
           sitemap.toXML( function (err, xml) {
             if (err) {
