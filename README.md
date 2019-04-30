@@ -25,7 +25,7 @@ Welcome to my first real public repo! This is for anyone looking to get into Nex
 4. Run the command: yarn install or npm install
 5. Open a Terminal and run the command: docker-compose up
 6. Go back to ui in a terminal
-7. Now run the command the following commands
+7. Now run the following commands
   - If Using Yarn
     - Windows: yarn start-win
     - Linux: yarn start
@@ -39,4 +39,4 @@ You now should be up and running and seeing it all in motion!
 - SQL Database is runnning at localhost:3306
 - PHPmyadmin is running at localhost:5000 (user: root | password: password)
 
-I will continue to come back to this project to keep it updated with best practices! Don't be afraid to message me for any questions you might have! The code is heavily commented
+I will continue to come back to this project to keep it updated with best practices! Don't be afraid to message me for any questions you might have! The code is heavily commented for your convenience!
